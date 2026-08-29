@@ -1,0 +1,29 @@
+<ActionBar title="Home"></ActionBar>
+
+<GridLayout rows="auto,*" padding="16">
+
+    <Label
+            row="0"
+            text="Read Now"
+            fontSize="22"
+            fontWeight="bold">
+    </Label>
+
+    <ListView
+            row="1"
+            [items]="readNowBooks$ | async">
+
+        <ng-template let-book="item">
+            <StackLayout padding="12">
+                <Label
+                        [text]="book.title"
+                        fontWeight="bold">
+                </Label>
+
+                <Label [text]="book.author"></Label>
+            </StackLayout>
+
+        </ng-template>
+    </ListView>
+
+</GridLayout>
