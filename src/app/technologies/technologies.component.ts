@@ -1,6 +1,7 @@
 import { Component } from '@angular/core'
 import { TechnologyService } from './technology.service'
 import { isAndroid } from '@nativescript/core'
+import { EventData, View } from '@nativescript/core'
 
 @Component({
   selector: 'ns-technologies',
@@ -19,5 +20,15 @@ export class TechnologiesComponent {
       this.platform = 'Android'
     }
   }
+  animateButton(args: EventData): void {
+    const button = args.object as View
 
+    button.animate({
+      rotate: 360,
+      duration: 500,
+    })
+  }
+  onLongPress(): void {
+      console.log('Long press detected')
+    }
 }
