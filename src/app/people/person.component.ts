@@ -69,6 +69,7 @@ export class PersonComponent {
         id: currentItems.length + 1,
         name: `New Scientist ${currentItems.length + 1}`,
         nationality: 'Unknown',
+        category: 'general',
         notableAchievements: ['Added with pull to refresh'],
       },
     ])
