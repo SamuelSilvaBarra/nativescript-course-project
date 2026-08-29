@@ -1,0 +1,6 @@
+@import './technologies-common.css';
+
+.tech-item {
+  background-color: #50967f;
+  border-radius: 12;
+}

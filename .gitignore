@@ -26,3 +26,40 @@ typings/
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+# Dependencies
+node_modules/
+
+# NativeScript generated platforms
+platforms/
+
+# Build output
+dist/
+build/
+
+# NativeScript cache
+.nativescript/
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# IDE
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Android generated/local files
+local.properties
+.gradle/
+
+# TypeScript / tooling cache
+*.tsbuildinfo

@@ -1,0 +1,22 @@
+<ActionBar title="Technologies"></ActionBar>
+
+<StackLayout>
+    <Image
+            src="res://technology_icon"
+            width="48"
+            height="48"
+            horizontalAlignment="center">
+    </Image>
+
+    <Label
+            *ngFor="let technology of technologies"
+            [text]="technology"
+            margin="8">
+    </Label>
+
+    <Button
+            text="Open Technology Detail"
+            [nsRouterLink]="['/technologies', 1]">
+    </Button>
+
+</StackLayout>
