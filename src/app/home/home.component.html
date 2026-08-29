@@ -1,4 +1,12 @@
-<ActionBar title="Home"></ActionBar>
+<ActionBar title="Home" iosLargeTitle="true">
+
+    <ActionItem
+            text="☰"
+            (tap)="openDrawer()"
+            android.position="actionBar">
+    </ActionItem>
+
+</ActionBar>
 
 <GridLayout rows="auto,*" padding="16">
 

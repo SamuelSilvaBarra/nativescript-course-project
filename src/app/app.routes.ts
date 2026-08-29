@@ -13,7 +13,7 @@ export const routes: Routes = [
       import('./technologies/technologies.module')
         .then((m) => m.TechnologiesModule),
   },
-  { path: '', redirectTo: '/items', pathMatch: 'full' },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'items', component: PersonComponent },
   { path: 'item/:id', component: PersonDetailComponent },
   { path: 'books',component: BooksComponent, },
