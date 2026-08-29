@@ -1,38 +1,25 @@
-import { Injectable } from '@angular/core'
-import { ApplicationSettings } from '@nativescript/core'
+import { Injectable, inject } from '@angular/core'
 import { Book } from './books-api.service'
+import { DatabaseService } from './database.service'
 
 @Injectable({
   providedIn: 'root',
 })
 export class FavoritesService {
-  private readonly FAVORITES_KEY = 'favorites'
+  private databaseService = inject(DatabaseService)
+  private db = this.databaseService.getDatabase()
 
-  getFavorites(): Book[] {
-    const storedFavorites = ApplicationSettings.getString(
-      this.FAVORITES_KEY,
-      '[]'
-    )
-
-    return JSON.parse(storedFavorites)
+  async getFavorites(): Promise<Book[]> {
+    return await this.db.select(
+      'SELECT id, title, author FROM favorites'
+    ) as Book[]
   }
 
-  addFavorite(book: Book): void {
-    const favorites = this.getFavorites()
-
-    const alreadyExists = favorites.some(
-      (favorite) => favorite.id === book.id
-    )
-
-    if (alreadyExists) {
-      return
-    }
-
-    favorites.push(book)
-
-    ApplicationSettings.setString(
-      this.FAVORITES_KEY,
-      JSON.stringify(favorites)
+  async addFavorite(book: Book): Promise<void> {
+    await this.db.execute(
+      `INSERT OR IGNORE INTO favorites (id, title, author)
+       VALUES (?, ?, ?)`,
+      [book.id, book.title, book.author]
     )
   }
 }

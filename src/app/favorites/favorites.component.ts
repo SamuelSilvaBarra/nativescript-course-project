@@ -20,7 +20,7 @@ export class FavoritesComponent {
   }
   favorites: Book[] = []
 
-  ngOnInit(): void {
-    this.favorites = this.favoritesService.getFavorites()
+  async ngOnInit(): Promise<void> {
+    this.favorites = await this.favoritesService.getFavorites()
   }
 }
