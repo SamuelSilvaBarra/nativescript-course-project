@@ -17,7 +17,9 @@
 
     <Button
             text="Open Technology Detail"
-            [nsRouterLink]="['/technologies', 1]">
+            [nsRouterLink]="['/technologies', 1]"
+            (tap)="animateButton($event)"
+            (longPress)="onLongPress()">
     </Button>
 
 </StackLayout>

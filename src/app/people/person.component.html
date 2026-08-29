@@ -13,22 +13,40 @@
     <SearchBar
             row="0"
             hint="Search scientists..."
+            [(ngModel)]="searchModel"
+            appMinSearchLength
             (textChange)="onSearchChange($event)">
     </SearchBar>
 
-    <ListView
+    <PullToRefresh
             row="1"
-            [items]="filteredItems()">
+            (refresh)="refreshList($event)">
 
+        <ListView [items]="filteredItems()">
         <ng-template let-item="item">
-            <StackLayout [nsRouterLink]="['/item', item.id]">
+            <FlexboxLayout
+                    flexDirection="row"
+                    alignItems="center"
+                    (tap)="openDetail(item.id)">
+
                 <Label
                         [text]="item.name"
                         class="text-lg text-gray-500 p-4">
                 </Label>
-            </StackLayout>
+
+                <Label
+                        [text]="item.category">
+                </Label>
+
+                <Button
+                        text="Category"
+                        (tap)="changeCategory(item)">
+                </Button>
+
+            </FlexboxLayout>
         </ng-template>
 
     </ListView>
+    </PullToRefresh>
 
 </GridLayout>
