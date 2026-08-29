@@ -16,10 +16,18 @@ export class FavoritesService {
   }
 
   async addFavorite(book: Book): Promise<void> {
+    console.log('Saving favorite:', book)
+
     await this.db.execute(
       `INSERT OR IGNORE INTO favorites (id, title, author)
        VALUES (?, ?, ?)`,
       [book.id, book.title, book.author]
     )
+
+    const rows = await this.db.select(
+      'SELECT id, title, author FROM favorites'
+    )
+
+    console.log('Favorites after INSERT:', rows)
   }
 }

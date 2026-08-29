@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core'
+import { ChangeDetectorRef, Component, inject } from '@angular/core'
 import { NativeScriptCommonModule } from '@nativescript/angular'
 import { FavoritesService } from '../services/favorites.service'
 import { Book } from '../services/books-api.service'
@@ -14,13 +14,19 @@ import { readNow } from '../store/read-now.actions'
 export class FavoritesComponent {
   private favoritesService = inject(FavoritesService)
   private store = inject(Store)
+  private cdr = inject(ChangeDetectorRef)
 
-  readNow(book: Book): void {
-    this.store.dispatch(readNow({ book }))
-  }
   favorites: Book[] = []
 
   async ngOnInit(): Promise<void> {
     this.favorites = await this.favoritesService.getFavorites()
+
+    console.log('SQLite favorites:', this.favorites)
+
+    this.cdr.detectChanges()
+  }
+
+  readNow(book: Book): void {
+    this.store.dispatch(readNow({ book }))
   }
 }
