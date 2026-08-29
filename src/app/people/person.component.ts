@@ -16,7 +16,7 @@ import { RouterExtensions } from '@nativescript/angular'
 import { registerElement } from '@nativescript/angular'
 import { PullToRefresh } from '@nativescript-community/ui-pulltorefresh'
 import { action } from '@nativescript/core'
-import { SnackBar } from '@nstudio/nativescript-snackbar'
+import { action, Application } from '@nativescript/core'
 import { NativeScriptFormsModule } from '@nativescript/angular'
 import { MinSearchLengthDirective } from '../validators/min-search-length.directive'
 
@@ -35,7 +35,6 @@ registerElement('PullToRefresh', () => PullToRefresh)
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PersonComponent {
-  private snackBar = new SnackBar()
   personService = inject(PersonService)
   searchText = signal('')
   searchModel = ''
@@ -54,7 +53,11 @@ export class PersonComponent {
       this.personService.items.set([
         ...this.personService.items()
       ])
-      this.snackBar.simple(`Category changed to ${result}`)
+      android.widget.Toast.makeText(
+        Application.android.context,
+        `Category changed to ${result}`,
+        android.widget.Toast.LENGTH_SHORT
+      ).show()
     }
   }
 
