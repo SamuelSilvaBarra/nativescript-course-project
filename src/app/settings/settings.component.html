@@ -1,0 +1,15 @@
+<ActionBar title="Settings"></ActionBar>
+
+<StackLayout padding="16">
+    <Label text="Username"></Label>
+
+    <TextField
+            [(ngModel)]="username"
+            hint="Enter username">
+    </TextField>
+
+    <Button
+            text="Save"
+            (tap)="save()">
+    </Button>
+</StackLayout>

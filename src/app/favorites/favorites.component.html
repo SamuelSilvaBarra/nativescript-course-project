@@ -1,0 +1,24 @@
+<ActionBar title="Favorites"></ActionBar>
+
+<ListView [items]="favorites">
+    <ng-template let-book="item">
+        <GridLayout columns="*,auto" padding="12">
+
+            <StackLayout col="0">
+                <Label
+                        [text]="book.title"
+                        fontWeight="bold">
+                </Label>
+
+                <Label [text]="book.author"></Label>
+            </StackLayout>
+
+            <Button
+                    col="1"
+                    text="Read Now"
+                    (tap)="readNow(book)">
+            </Button>
+
+        </GridLayout>
+    </ng-template>
+</ListView>

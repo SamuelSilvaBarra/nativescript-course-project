@@ -1,0 +1,47 @@
+<ActionBar title="Books"></ActionBar>
+
+<GridLayout rows="auto,*" padding="16">
+
+    <GridLayout row="0" columns="*,auto">
+        <TextField
+                col="0"
+                hint="Search books..."
+                [(ngModel)]="searchText">
+        </TextField>
+
+        <Button
+                col="1"
+                text="Search"
+                (tap)="search()">
+        </Button>
+    </GridLayout>
+
+    <ListView
+            row="1"
+            [items]="books">
+
+        <ng-template let-book="item">
+            <GridLayout columns="*,auto" padding="12">
+
+                <StackLayout col="0">
+                    <Label
+                            [text]="book.title"
+                            fontWeight="bold">
+                    </Label>
+
+                    <Label
+                            [text]="book.author">
+                    </Label>
+                </StackLayout>
+
+                <Button
+                        col="1"
+                        text="★ Save"
+                        (tap)="saveFavorite(book)">
+                </Button>
+
+            </GridLayout>
+        </ng-template>
+    </ListView>
+
+</GridLayout>

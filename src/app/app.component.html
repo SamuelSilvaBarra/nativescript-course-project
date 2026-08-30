@@ -19,12 +19,33 @@
             </Label>
 
             <Button
-                    text="Computer Scientists"
-                    (tap)="navigate('/')">
+                    text="Home"
+                    (tap)="navigate('/home')">
             </Button>
+
+            <Button
+                    text="Computer Scientists"
+                    (tap)="navigate('/items')">
+            </Button>
+
+            <Button
+                    text="Books"
+                    (tap)="navigate('/books')">
+            </Button>
+
             <Button
                     text="Technologies"
                     (tap)="navigate('/technologies')">
+            </Button>
+
+            <Button
+                    text="Favorites"
+                    (tap)="navigate('/favorites')">
+            </Button>
+
+            <Button
+                    text="Settings"
+                    (tap)="navigate('/settings')">
             </Button>
 
         </StackLayout>
