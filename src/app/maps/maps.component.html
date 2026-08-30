@@ -1,0 +1,11 @@
+<ActionBar title="Google Maps"></ActionBar>
+
+<GridLayout rows="*">
+    <MapView
+            row="0"
+            [lat]="latitude"
+            [lng]="longitude"
+            [zoom]="zoom"
+            (ready)="onReady($event)">
+    </MapView>
+</GridLayout>

@@ -1,0 +1,53 @@
+<ActionBar title="Native Features"></ActionBar>
+
+<ScrollView>
+    <StackLayout padding="20">
+
+        <Label
+                text="Native device features"
+                fontSize="24"
+                fontWeight="bold"
+                marginBottom="20">
+        </Label>
+
+        <Label
+                text="Share content using the native sharing capabilities of the device."
+                textWrap="true"
+                marginBottom="15">
+        </Label>
+
+        <Button
+                text="Share text"
+                (tap)="shareContent()">
+        </Button>
+
+        <Label
+                text="Camera"
+                fontSize="20"
+                fontWeight="bold"
+                marginTop="30"
+                marginBottom="10">
+        </Label>
+
+        <Button
+                text="Take photo"
+                (tap)="takePhoto()">
+        </Button>
+
+        <Image
+                *ngIf="photo"
+                [src]="photo"
+                stretch="aspectFit"
+                height="300"
+                marginTop="15">
+        </Image>
+
+        <Button
+                *ngIf="photo"
+                text="Share photo"
+                (tap)="sharePhoto()"
+                marginTop="10">
+        </Button>
+
+    </StackLayout>
+</ScrollView>
