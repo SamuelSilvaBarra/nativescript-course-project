@@ -1,10 +1,8 @@
 import { Component } from '@angular/core'
 import { NativeScriptCommonModule } from '@nativescript/angular'
-import { Dialogs, ImageAsset } from '@nativescript/core'
-import { shareText } from '@nativescript/social-share'
-import * as camera from '@nativescript/camera'
 import { Dialogs, ImageAsset, ImageSource } from '@nativescript/core'
 import { shareText, shareImage } from '@nativescript/social-share'
+import * as camera from '@nativescript/camera'
 
 @Component({
   selector: 'ns-native-features',
